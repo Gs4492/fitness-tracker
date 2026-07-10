@@ -1,0 +1,61 @@
+/* Main layout */
+#root {
+  min-height: 100vh;
+  background-color: #0B0F14;
+}
+
+/* Navigation */
+nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #151B23;
+  border-top: 1px solid #2d3748;
+  z-index: 100;
+}
+
+/* Scrollable content area */
+.content {
+  padding-bottom: 80px;
+}
+
+/* Cards */
+.card {
+  background-color: #151B23;
+  border: 1px solid #2d3748;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+/* Buttons */
+button {
+  transition: all 0.2s ease;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .container {
+    padding: 0 1rem;
+  }
+}

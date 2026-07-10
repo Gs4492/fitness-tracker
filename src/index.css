@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #0B0F14;
+  color: #F5F5F5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #0B0F14;
+}
+
+@layer components {
+  .card {
+    @apply bg-card-dark rounded-lg p-4 border border-gray-800;
+  }
+
+  .card-lg {
+    @apply bg-card-dark rounded-lg p-6 border border-gray-800;
+  }
+
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-colors duration-200 cursor-pointer;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-blue-600 active:bg-blue-700;
+  }
+
+  .btn-secondary {
+    @apply bg-card-dark text-text-primary border border-gray-700 hover:bg-gray-900;
+  }
+
+  .btn-success {
+    @apply bg-success text-black font-medium hover:bg-green-500;
+  }
+
+  .btn-lg {
+    @apply py-3 text-lg;
+  }
+
+  .progress-bar {
+    @apply w-full bg-gray-700 rounded-full h-2 overflow-hidden;
+  }
+
+  .progress-fill {
+    @apply h-full bg-primary transition-all duration-300;
+  }
+}
