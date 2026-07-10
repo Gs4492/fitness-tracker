@@ -812,8 +812,135 @@ const exercises: { [key: string]: Exercise } = {
     easyVariation: "Legs only",
     hardVariation: "Hold for 3 seconds"
   },
+  reverseCrunch: {
+    id: "reverseCrunch",
+    name: "Reverse Crunch",
+    targets: ["Lower Abs", "Core"],
+    description: "Lower abdominal exercise.",
+    why: "Targets the lower abdominal muscles while minimizing hip flexor involvement.",
+    form: [
+      "Lie on your back.",
+      "Bring knees toward your chest.",
+      "Lift hips slightly off the floor.",
+      "Lower slowly."
+    ],
+    mistakes: [
+      "Using momentum.",
+      "Swinging the legs.",
+      "Not controlling the lowering phase."
+    ],
+    sets: 3,
+    reps: 15,
+    tempo: "2-1-2",
+    rest: 45,
+    easyVariation: "Bent-knee reverse crunch",
+    hardVariation: "Slow negatives"
+  },
+  bandOverheadPress: {
+    id: "bandOverheadPress",
+    name: "Resistance Band Overhead Press",
+    targets: ["Front Delts", "Side Delts", "Triceps"],
+    description: "Standing overhead press using a resistance band.",
+    why: "Provides constant tension throughout the press and builds stronger shoulders.",
+    form: [
+      "Stand on the resistance band.",
+      "Hands at shoulder height.",
+      "Press overhead until arms are straight.",
+      "Lower slowly under control."
+    ],
+    mistakes: [
+      "Arching the lower back.",
+      "Locking elbows aggressively.",
+      "Using momentum."
+    ],
+    sets: 4,
+    reps: 12,
+    tempo: "2-1-2",
+    rest: 75,
+    easyVariation: "Use lighter band",
+    hardVariation: "Extra-hard band"
+  },
+
+  frontRaise: {
+    id: "frontRaise",
+    name: "Dumbbell Front Raise",
+    targets: ["Front Delts"],
+    description: "Isolation exercise for the front shoulder.",
+    why: "Develops front deltoids to improve shoulder size and pressing strength.",
+    form: [
+      "Hold dumbbells in front of thighs.",
+      "Raise to shoulder height.",
+      "Pause briefly.",
+      "Lower slowly."
+    ],
+    mistakes: [
+      "Swinging the weights.",
+      "Going above shoulder height.",
+      "Shrugging shoulders."
+    ],
+    sets: 3,
+    reps: 15,
+    tempo: "2-1-2",
+    rest: 60,
+    easyVariation: "One arm at a time",
+    hardVariation: "Slow negatives"
+  },
+
+  closeGripPushup: {
+    id: "closeGripPushup",
+    name: "Close-Grip Push-Up",
+    targets: ["Triceps", "Inner Chest"],
+    description: "Push-up with hands close together.",
+    why: "Places greater emphasis on the triceps while still training the chest.",
+    form: [
+      "Hands slightly narrower than shoulder width.",
+      "Keep elbows close to your sides.",
+      "Lower until chest nearly touches the floor.",
+      "Press back up."
+    ],
+    mistakes: [
+      "Elbows flaring out.",
+      "Hips sagging.",
+      "Half reps."
+    ],
+    sets: 3,
+    reps: 12,
+    tempo: "2-1-2",
+    rest: 60,
+    easyVariation: "Incline close-grip push-up",
+    hardVariation: "Band-resisted close-grip push-up"
+  },
+  squatJump: {
+    id: "squatJump",
+    name: "Squat Jump",
+    targets: ["Quads", "Glutes", "Calves", "Power"],
+    description: "Explosive bodyweight squat.",
+    why: "Develops explosive leg power, athleticism and conditioning while improving lower-body coordination.",
+    form: [
+      "Stand with feet shoulder-width apart.",
+      "Lower into a squat.",
+      "Explode upward as high as possible.",
+      "Land softly with knees slightly bent.",
+      "Go straight into the next rep."
+    ],
+    mistakes: [
+      "Landing with stiff knees.",
+      "Not squatting deep enough.",
+      "Leaning too far forward."
+    ],
+    sets: 3,
+    reps: 12,
+    tempo: "Explosive",
+    rest: 60,
+    easyVariation: "Bodyweight Squat",
+    hardVariation: "Band-Resisted Squat Jump"
+  },
 
 };
+
+function cloneDays(days: WorkoutDay[]): WorkoutDay[] {
+  return structuredClone(days);
+}
 
 const week1Days: WorkoutDay[] = [
   {
@@ -826,12 +953,10 @@ const week1Days: WorkoutDay[] = [
     exercises: [
       exercises.pushupBarsPushup,
       exercises.bandChestPress,
-      exercises.shoulderPress,
-      exercises.lateralRaise,
+      exercises.dumbbellBench,
       exercises.bandChestFly,
+      exercises.lateralRaise,
       exercises.dumbellTricepPress,
-      exercises.crunch,
-      exercises.plank,
     ],
 
     warmup: [
@@ -861,13 +986,11 @@ const week1Days: WorkoutDay[] = [
 
     exercises: [
       exercises.pullup,
-      exercises.bandRow,
       exercises.dumbbellRow,
       exercises.straightArmPulldown,
-      exercises.rearDeltFly,
+      exercises.facePull,
       exercises.dumbbellCurl,
       exercises.hammerCurl,
-      exercises.deadBug,
     ],
 
     warmup: [
@@ -896,13 +1019,12 @@ const week1Days: WorkoutDay[] = [
 
     exercises: [
       exercises.squats,
-      exercises.romanianDeadlift,
       exercises.bulgarianSplitSquat,
-      exercises.walkingLunge,
-      exercises.gluteBridge,
+      exercises.romanianDeadlift,
       exercises.calfRaise,
-      exercises.mountainClimber,
       exercises.plank,
+      exercises.reverseCrunch,
+      exercises.deadBug,
     ],
 
     warmup: [
@@ -932,13 +1054,11 @@ const week1Days: WorkoutDay[] = [
 
     exercises: [
       exercises.declinePushup,
-      exercises.shoulderPress,
-      exercises.pikePushup,
+      exercises.bandOverheadPress,
       exercises.lateralRaise,
-      exercises.bandChestFly,
+      exercises.frontRaise,
       exercises.facePull,
-      exercises.dumbellTricepPress,
-      exercises.sidePlank,
+      exercises.closeGripPushup,
     ],
 
     warmup: [
@@ -966,14 +1086,12 @@ const week1Days: WorkoutDay[] = [
     duration: 55,
 
     exercises: [
+      exercises.pullup,
       exercises.dumbbellRow,
-      exercises.bandRow,
       exercises.facePull,
       exercises.rearDeltFly,
-      exercises.hammerCurl,
       exercises.reverseCurl,
-      exercises.concentrationCurl,
-      exercises.birdDog,
+      exercises.hammerCurl,
     ],
 
     warmup: [
@@ -1001,13 +1119,11 @@ const week1Days: WorkoutDay[] = [
     duration: 55,
 
     exercises: [
-      exercises.walkingLunge,
       exercises.squats,
       exercises.romanianDeadlift,
-      exercises.bulgarianSplitSquat,
-      exercises.gluteBridge,
+      exercises.walkingLunge,
+      exercises.squatJump,
       exercises.calfRaise,
-      exercises.mountainClimber,
       exercises.sidePlank,
     ],
 
@@ -1031,6 +1147,123 @@ const week1Days: WorkoutDay[] = [
   },
 ];
 
+const week2Days = cloneDays(week1Days);
+
+// ----------------------
+// Week 2 Progression
+// ----------------------
+
+week2Days.forEach((day) => {
+  day.exercises.forEach((exercise) => {
+
+    // Increase reps on almost every exercise
+    if (
+      exercise.reps &&
+      exercise.name !== "Plank Hold" &&
+      exercise.name !== "Side Plank"
+    ) {
+      exercise.reps += 2;
+    }
+
+  });
+});
+
+const week3Days = cloneDays(week2Days);
+
+// ----------------------
+// Week 3 Progression
+// ----------------------
+
+week3Days.forEach((day) => {
+  day.exercises.forEach((exercise) => {
+
+    // Add one set to the main compound lifts
+    if (
+      [
+        "Deep Push-Up (Push-Up Bars)",
+        "Resistance Band Pull-Down",
+        "Dumbbell Goblet Squat",
+        "Dumbbell Floor Press",
+        "Dumbbell Row",
+        "Romanian Deadlift",
+        "Decline Push-Up",
+      ].includes(exercise.name)
+    ) {
+      if (exercise.sets) {
+        exercise.sets += 1;
+      }
+    }
+
+  });
+});
+
+const week4Days = cloneDays(week3Days);
+
+// ----------------------
+// Week 4 Progression
+// ----------------------
+
+week4Days.forEach((day) => {
+  day.exercises.forEach((exercise) => {
+
+    // Slower tempo for more time under tension
+    exercise.tempo = "4-1-2";
+
+    // Reduce rest slightly (don't go below 30 sec)
+    if (exercise.rest) {
+      exercise.rest = Math.max(30, exercise.rest - 15);
+    }
+
+  });
+});
+
+const week5Days = cloneDays(week4Days);
+
+// ----------------------
+// Week 5 Progression
+// ----------------------
+
+week5Days.forEach((day) => {
+  day.exercises = day.exercises.map((exercise) => {
+
+    switch (exercise.id) {
+
+      case "pushupBarsPushup":
+        return {
+          ...exercise,
+          name: "Band Resisted Push-Up",
+          reps: 10,
+          sets: 4,
+          why:
+            "Added resistance builds significantly more chest and triceps strength.",
+        };
+
+      case "romanianDeadlift":
+        return {
+          ...exercise,
+          name: "Single-Leg Romanian Deadlift",
+          reps: 10,
+          sets: 4,
+          why:
+            "Improves balance while increasing hamstring and glute activation.",
+        };
+
+      case "plank":
+        return {
+          ...exercise,
+          name: "Plank Shoulder Taps",
+          reps: 20,
+          why:
+            "Adds anti-rotation strength and greater core stability.",
+        };
+
+      default:
+        return exercise;
+    }
+
+  });
+});
+
 const trainingProgram: TrainingProgram = {
   name: '12-Week Home Body Recomposition',
   duration: 12,
@@ -1038,6 +1271,22 @@ const trainingProgram: TrainingProgram = {
     {
       week: 1,
       days: week1Days,
+    },
+    {
+      week: 2,
+      days: week2Days,
+    },
+    {
+      week: 3,
+      days: week3Days,
+    },
+    {
+      week: 4,
+      days: week4Days,
+    },
+    {
+      week: 5,
+      days: week5Days,
     },
   ],
 
