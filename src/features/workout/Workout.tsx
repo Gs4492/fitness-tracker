@@ -9,9 +9,63 @@ import { saveCompletedWorkout } from "../../services/database";
 export default function Workout() {
   const navigate = useNavigate();
 
-  const workout = programData.weeks[0].days[0];
+  /*
+  0 = Sunday
+  1 = Monday
+  2 = Tuesday
+  3 = Wednesday
+  4 = Thursday
+  5 = Friday
+  6 = Saturday
+  */
+
+  const today = new Date().getDay();
+
+  const isRecoveryDay = today === 0;
+
+  const workoutIndex = isRecoveryDay ? 0 : today - 1;
+
+  const workout = programData.weeks[0].days[workoutIndex];
 
   const engine = useWorkout(workout.exercises.length);
+
+  if (isRecoveryDay) {
+    return (
+      <div className="min-h-screen bg-bg-dark text-text-primary px-5 pt-8 pb-32">
+
+        <button
+          onClick={() => navigate("/")}
+          className="flex items-center gap-2 text-text-secondary"
+        >
+          <ArrowLeft size={20} />
+          Home
+        </button>
+
+        <h1 className="text-4xl font-bold mt-8">
+          Recovery Day 😌
+        </h1>
+
+        <p className="text-text-secondary mt-4">
+          Today is your recovery day.
+        </p>
+
+        <div className="card-lg mt-8">
+          <h2 className="text-2xl font-bold">
+            Today's Goals
+          </h2>
+
+          <ul className="mt-6 space-y-3">
+            <li>🚶 Walk for 20–30 minutes</li>
+            <li>🧘 Stretch for 10 minutes</li>
+            <li>💧 Drink at least 3L of water</li>
+            <li>🥩 Hit your protein goal</li>
+            <li>😴 Get 7–9 hours of sleep</li>
+          </ul>
+        </div>
+
+      </div>
+    );
+  }
 
   async function finishWorkout() {
     await saveCompletedWorkout({
